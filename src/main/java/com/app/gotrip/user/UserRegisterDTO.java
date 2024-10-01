@@ -35,7 +35,7 @@ public class UserRegisterDTO {
     private String email2;
 
     @NotBlank(message = "전화번호는 필수입니다.")
-    @Pattern(regexp = "^\\d{10,11}$", message = "전화번호는 10자리 또는 11자리 숫자여야 합니다.(특수문자나 공백 제외)")
+    @Pattern(regexp = "^\\d{10,11}$", message = "전화번호는 특수문자 공백제외 11자리 숫자로 입력해주세요.")
     private String phoneNo;
 
 }
