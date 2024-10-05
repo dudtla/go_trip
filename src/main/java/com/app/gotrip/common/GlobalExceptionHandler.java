@@ -30,11 +30,35 @@ public class GlobalExceptionHandler {
 
         for(FieldError error : exception.getBindingResult().getFieldErrors()){
             //getBindingResult() : 입력받은 데이터와 유효성 검사 결과 반환,getFieldErrors(): 오류가 발생한 필드이름, 오류메세지, 필드의 잘못된 값 반환
-            String fieldName = error.getField(); // 오류 코드를 저장할 변수
+            String errorCode = userRegisterErrorCode(error.getField());
             String errorMessage = error.getDefaultMessage();//오류 메세지
-            userError.put(fieldName, errorMessage); //변수명과 오류메세지 맵에 추가
+
+            userError.put("errorCode", errorCode);
+            userError.put("errorMessage", errorMessage);
         }
         return new ResponseEntity<>(userError, HttpStatus.BAD_REQUEST); //오류맵과 상태코드 클라이언드에게 반환
     }
-//필드명이 아니라 DTO에서 설정한 오류메세지랑 클래스로 빼둔 오류코드를 출력하고 싶은데 이게...
-}
+
+
+    //ErrorCode가져오는 매서드
+    //근데 이게 맞나...?이렇게 예외를 처리하고 코드를 보여주는 방법이 효율성있는건가?애초에 에러코드를 작성하는 이유가 뭘까...클라이언트에서 에러 메세지가 뜨는데...
+    //회원가입 시 유효성 검사 통과 못함 => 내가 작성한 예외코드를 가져옴 => DTO로가서 예외 메세지를 가져옴=> 예외핸들러로 가서 메세지와 내가 작성한 예외 코드를 해쉬맵에 넣어주고 클라이언트에게 보여줌
+    private String userRegisterErrorCode(String fieldName){
+        switch (fieldName) {
+            case "userId":
+                return ErrorCode.USER_REGISTER_ID;
+            case "userPwd":
+                return ErrorCode.USER_REGISTER_PWD;
+            case "email1":
+                return ErrorCode.USER_REGISTER_EMAIL1;
+            case "email2":
+                return ErrorCode.USER_REGISTER_EMAIL2;
+            case "phoneNo":
+                return ErrorCode.USER_REGISTER_PHONE;
+            default:
+                return ErrorCode.UNKNOWN_ERROR; // 알 수 없는 오류
+        }
+    }
+
+    }
+

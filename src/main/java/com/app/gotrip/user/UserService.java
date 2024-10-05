@@ -15,7 +15,7 @@ public class UserService {
         // 빌더 패턴을 사용하여 DTO를 엔티티로 변환
         // 객체생성(new)가 아닌 빌더패턴을 이용하는 이유?검색해도 모르겠다ㅎㅎ
         //흐름 : 클라이언트가 보낸 데이터 => 컨트롤러가 dto객체로 받아옴
-        //=>dto를 서비스로 토스=> 서비스에서 biz수행 => dto를 엔티티로 변환=> 변환된 엔티티를 레포를 통해서 서장
+        //=>dto를 서비스로 토스=> 서비스에서 biz수행 => dto를 엔티티로 변환=> 변환된 엔티티를 레포를 통해서 저장
         UserEntity userEntity = UserEntity.builder()
                 .userId(userRegisterDTO.getUserId())
                 .userPwd(userRegisterDTO.getUserPwd())
