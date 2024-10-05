@@ -1,4 +1,4 @@
-package com.app.gotrip;
+package com.gotrip;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

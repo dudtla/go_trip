@@ -1,4 +1,4 @@
-package com.app.gotrip.host;
+package com.gotrip.partner;
 
 public interface Repository {
 }

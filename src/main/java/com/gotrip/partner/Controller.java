@@ -1,4 +1,4 @@
-package com.app.gotrip.host;
+package com.gotrip.partner;
 
 public class Controller {
 }

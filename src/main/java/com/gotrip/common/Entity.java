@@ -1,4 +1,4 @@
-package com.app.gotrip.common;
+package com.gotrip.common;
 
 
 import jakarta.persistence.Column;
@@ -14,7 +14,7 @@ import lombok.Setter;
 @Setter
 @Builder
 //JPA는 엔티티클래스의 필드에 직접 접근하기 보다는 메서드를 통해 값을 읽거나 설정한다 만약 게터세터가 없으면 JPA가 필드에 접근 할 수 없기 때문에 매핑이 제대로 이루러지지 않는다
-public class UserEntity {
+public class Entity {
     @Id
     @Column(name = "USER_ID")
     private String userId;
