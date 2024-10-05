@@ -1,4 +1,4 @@
-package com.app.gotrip.admin;
+package com.gotrip.admin;
 
 public interface Repository {
 }
